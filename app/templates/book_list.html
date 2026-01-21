@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Books - Library Management System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1>Books</h1>
+    </div>
+    <div class="col text-end">
+        <a href="{{ url_for('book.new_book') }}" class="btn btn-primary">Add New Book</a>
+    </div>
+</div>
+
+{# Search Form #}
+<div class="row mb-4">
+    <div class="col">
+        <form method="get" action="{{ url_for('book.index') }}" class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="searchInput" class="visually-hidden">Search</label>
+                <input type="text" class="form-control" id="searchInput" name="query" placeholder="Search by Title or Author" value="{{ query or '' }}">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-secondary">Search</button>
+                {% if query %}
+                    <a href="{{ url_for('book.index') }}" class="btn btn-outline-secondary ms-2">Clear Search</a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publication Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td><a href="{{ url_for('book.book_detail', id=book.id) }}">{{ book.title }}</a></td>
+                <td>{{ book.author.name if book.author else 'N/A' }}</td>
+                <td>{{ book.publication_year }}</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a href="{{ url_for('book.edit_book', id=book.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ url_for('book.delete_book', id=book.id) }}" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center">No books found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %} 

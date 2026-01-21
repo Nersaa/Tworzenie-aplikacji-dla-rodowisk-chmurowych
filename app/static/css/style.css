@@ -1,0 +1,20 @@
+/* Basic styles */
+body {
+    padding-top: 0;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.book-card {
+    margin-bottom: 20px;
+}
+
+.review-card {
+    margin-bottom: 15px;
+}
+
+.rating {
+    color: #ffc107;
+} 
