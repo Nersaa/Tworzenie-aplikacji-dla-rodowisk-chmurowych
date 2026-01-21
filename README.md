@@ -11,7 +11,6 @@ Webowa aplikacja do zarządzania biblioteką (system zarządzania książkami, a
 - **Autor**: Mykyta Kostiukov  
 - **Numer indeksu**: 50745
 
-*(Jeśli projekt jest wykonywany w grupie, tutaj można dopisać pozostałe osoby.)*
 
 ## Wprowadzenie
 
@@ -34,7 +33,7 @@ Minimum dwie kompletne funkcjonalności wymagane w zadaniu zostały spełnione (
    - Przypisanie recenzji do konkretnej osoby (osoby zakładane automatycznie)  
    - Wyświetlanie recenzji na stronie szczegółów książki (`/book/<id>`)
 
-3. **Dodatkowe funkcjonalności (ponad minimum)**  
+3. **Dodatkowe funkcjonalności **  
    - **Wyszukiwanie książek** po tytule i autorze (pole wyszukiwania na stronie głównej)  
    - **Zarządzanie autorami** – autor tworzy się automatycznie przy dodawaniu książki z nowym autorem  
    - **Zarządzanie osobami** – osoby (czytelnicy/recenzenci) tworzone są automatycznie przy dodawaniu recenzji lub wypożyczeniu  
@@ -65,7 +64,7 @@ Główne pliki:
 - **Frontend**: Jinja2, Bootstrap 5  
 - **Infrastruktura**: Docker, Docker Compose
 
-## Instrukcje uruchomienia aplikacji (wymagane przez zadanie)
+## Instrukcje uruchomienia aplikacji 
 
 Założenie z treści zadania: *całość aplikacji uruchamiana jest przy pomocy `docker compose up`*.
 
